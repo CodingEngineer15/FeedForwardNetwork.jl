@@ -36,11 +36,11 @@ Input = inputify(inputs) # Inputs are defined
 
 Label = inputify(label) # Expected oytputs are defined
 
-for i=1:10000
+
 
 #First you define the parameters for the BackPropUnit as (TheNeuralNetwork,TheInputForTheNetwork,TheExpectedOutput)
 #Then you perform gradient descent with the Network using the BackPropUnit defined in step 1 and the derivate of the cost function and the learning rate
-
+for i=1:10000
     LUnit = BackPropUnit(Network,Input[(i%4)+1],Label[(i%4)+1])
     
     SGD(LUnit,quadDeriv,0.1)
