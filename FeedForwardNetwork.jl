@@ -57,7 +57,7 @@ mutable struct NeuralNetwork
 end
 
 function CreateLayer(inputsize::Int, NumNeurons::Int, transform::Function, derivative::Function)
-#An iitialiser for the ConnectedLayer struct
+#An initialiser for the ConnectedLayer struct
 	return ConnectedLayer(inputsize,NumNeurons,rand(NumNeurons, inputsize + 1),transform,derivative) #The +1 is to take into accoint the bias of each layer
 end
 
@@ -144,7 +144,7 @@ function SGD(lunit::BackPropUnit, costderiv::Function,lrate::AbstractFloat)
     lunit.networkArchitecture.layers[1].parameters[:,end] -= lunit.deltas[1]*lrate
     
     #update parameters with this loop
-    for i=2:(length(lunit.networkArchitecture.layers)) # figure out what the loop is meant to be for the SGD
+    for i=2:(length(lunit.networkArchitecture.layers)) #1st layer already updated so begin loop with the 2nd layer
        dw =  lunit.deltas[i] * transpose(lunit.outputs[i-1]) 
         # db = deltas
         Layer = lunit.networkArchitecture.layers[i] 
