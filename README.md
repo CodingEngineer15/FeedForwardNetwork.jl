@@ -48,6 +48,8 @@ for i=1:10000
     SGD(LUnit,quadDeriv,0.1)
     
 end
+
+
 println(infer(Network,reshape([0.0,0.0],(2,1)))) # Expected output is 0
 
 println(infer(Network,reshape([1.0,0.0],(2,1)))) # Expected output is 1
