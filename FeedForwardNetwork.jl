@@ -112,7 +112,6 @@ struct BackPropUnit
   end 
 end
 
-
 function forwardPass!(learningUnit::BackPropUnit)
 # initialises learningUnit.outputs to the output of each layer
 	CurrentPass = learningUnit.dataBatch
